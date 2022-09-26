@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記帳幫手</title>
+    <style>
+        .login_main {
+            height: 300px;
+            width: 400px;
+            margin-top: 10%;
+            margin-left: 30%;
+            border: 1px solid #D3D3D3;
+            text-align: center;
+            border-radius: 3px;
+            font-family: Arial, Helvetica, sans-serif; 
+        }
+        .password, .other{
+            margin-top: 10px;
+        }
+        .other {
+            text-align: left;
+        }
+        .sign_up {
+            margin-left: 100px;
+            margin-right: 110px;
+        }
+        .account, .password {
+            color: gray;
+            border-radius: 3px;
+        }
+        .account_input, .password_input {
+            border-radius: 3px;
+            margin-left: 3px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</head>
+<body>
+    <header>
+        <div class="login_main">
+            <form action="#" method="post" th:action="@{/verify/account}" th:object="${user}">
+                <div><h1>記帳小幫手</h1></div>
+                <div><h2>登入</h2></div>
+                <div><h4>請輸入您的帳戶</h4></div>
+                <div class="account">
+                    <span>帳號:</span><input class="account_input" type="text"  th:field="*{userId}">
+                </div>
+                <div class="password">
+                    <span>密碼:</span><input class="password_input"type="text"  th:field="*{password}">
+                </div>
+                <div class="other">
+                    <a class="sign_up" href="#" th:href="@{/signup}">註冊</a>
+                    <button type="submit">登入</button>
+                </div>
+            </form>
+        </div>
+    </header>
+</body>
+</html>

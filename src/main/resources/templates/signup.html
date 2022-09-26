@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記帳幫手</title>
+    <style>
+        .signup_main {
+            height: 300px;
+            width: 400px;
+            margin-top: 10%;
+            margin-left: 30%;
+            border: 1px solid #D3D3D3;
+            text-align: center;
+            border-radius: 3px;
+            font-family: Arial, Helvetica, sans-serif; 
+        }
+        .account, .password, .name, .email{
+            margin-top: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</head>
+<body>
+    <div class="signup_main">
+        <form action="#" method="post" th:action="@{/check/signup}" th:object="${user}">
+            <input type="hidden" class="msg" th:value="${msg.message}" />
+            <div class="account">
+                <span>帳號</span><input type="text" th:field="*{userId}"></td>
+            </div>
+            <div class="password">
+                <span>密碼</span><input type="text" th:field="*{password}"></td>
+            </div>
+            <div class="name">
+                <span>暱稱</span><input type="text" th:field="*{userName}"></td>
+            </div>
+            <div class="email">
+                <span>Email</span><input type="text" th:field="*{email}"></td>
+            </div>
+            <div class="email">
+                <button type="submit">送出</button>
+            </div>
+            <!-- <table>
+                <tr>
+                    <th>帳號</th><td><input type="text" th:field="*{userId}"></td>
+                </tr>
+                <tr>
+                    <th>密碼</th><td><input type="text" th:field="*{password}"></td>
+                </tr>
+                <tr>
+                    <th>暱稱</th><td><input type="text" th:field="*{userName}"></td>
+                </tr>
+                <tr>
+                    <th>Email</th><td><input type="text" th:field="*{email}"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" onclick="check()"></td>
+                </tr>
+            </table> -->
+        </form>
+    </div>
+    <script>
+        window.onload=function (){ 
+           var msg = $(".msg").val();
+           if (msg) {
+                alert(msg);
+           }
+        }
+    </script>
+</body>
+</html>
