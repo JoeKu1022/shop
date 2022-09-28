@@ -1,5 +1,7 @@
 package com.joe.java.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,10 +9,6 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.joe.java.entity.UserEntity;
 import com.joe.java.repository.UserRepository;
 
@@ -30,7 +28,7 @@ public class LoginController {
 	}
 	
 	@PostMapping("/verify/account")
-	public String varifyAccount(@ModelAttribute UserEntity userEntity, Model model) {
+    public String varifyAccount(@ModelAttribute UserEntity userEntity, Model model, HttpServletRequest req) {
 		UserEntity user = userRepository.findByUserIdAndPassword(userEntity.getUserId(), userEntity.getPassword());
 		if (ObjectUtils.isEmpty(user)) {
 			UserEntity user1 = new UserEntity();
@@ -50,7 +48,7 @@ public class LoginController {
 		MessageVo msg = new MessageVo();
 		model.addAttribute("msg", msg);
 		return "signup";
-	} 
+	}
 	
 	@PostMapping("/check/signup")
 	public String checkSignUp(@ModelAttribute UserEntity userEntity, Model model) {
@@ -90,6 +88,6 @@ public class LoginController {
 		model.addAttribute("user", userEntity);
 		return "index";
 		
-	} 
+	}
 
 }
