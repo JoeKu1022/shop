@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支出畫面</title>
+</head>
+<body>
+    <div th:fragment="expense">
+        
+        <div class="expense_container">
+            <div class="budget">
+                <div class="budget_detail"><h3>預算/餘額:</h3></div>
+                <div class="budget_detail"><h4>4000 / 8000元</h2></div>
+                <div class="budget_detail"><h4>50%</h2></div>
+                <div>修改預算:</div>
+                <div><input class="budgetValue" type="text" style="width: 80px;" maxlength="10"></div>
+                <button class="budgetBtn">確認修改</button>    
+            </div>
+            <div class="type_container">
+                <table class="type_table" name="form1">
+                    <tr><th><input type="radio" name="detail">食物</th></tr>
+                    <tr><th><input type="radio" name="detail">飲料</th></tr>
+                    <tr><th><input type="radio" name="detail">交通</th></tr>
+                    <tr><th><input type="radio" name="detail">娛樂</th></tr>
+                    <tr><th><input type="radio" name="detail">電話費</th></tr>
+                    <tr><th><input type="radio" name="detail">日常用品</th></tr>
+                    <tr><th><input type="radio" name="detail">衣物</th></tr>
+                    <tr><th><input type="radio" name="detail">房租</th></tr>
+                    <tr><th><input type="radio" name="detail">投資</th></tr>
+                    <tr><th><input type="radio" name="detail">其他</th></tr>
+                    <tr><th><button>儲存</button></th></tr>
+                </table>
+                
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="column" id="calc-display-val">0</div>
+                </div>
+                <div class="row">
+                    <div class="calc-btn column" id="calc-clear">AC</div>
+                    <div class="calc-btn column" id="calc-backspace">⇤</div> <!--backspace btn-->
+                    <div class="calc-btn calc-btn-operator column" id="calc-divide">÷</div> <!--divide ÷ btn-->
+                </div>
+                <div class="row">
+                    <div class="calc-btn calc-btn-num column" id="calc-seven">7</div>
+                    <div class="calc-btn calc-btn-num column" id="calc-eight">8</div>
+                    <div class="calc-btn calc-btn-num column" id="calc-nine">9</div>
+                    <div class="calc-btn calc-btn-operator column" id="calc-mutiply">x</div>
+                </div>
+                <div class="row">
+                    <div class="calc-btn calc-btn-num column" id="calc-four">4</div>
+                    <div class="calc-btn calc-btn-num column" id="calc-five">5</div>
+                    <div class="calc-btn calc-btn-num column" id="calc-six">6</div>
+                    <div class="calc-btn calc-btn-operator column" id="calc-minus">-</div>
+                </div>
+                <div class="row">
+                    <div class="calc-btn calc-btn-num column" id="calc-one">1</div>
+                    <div class="calc-btn calc-btn-num column" id="calc-two">2</div>
+                    <div class="calc-btn calc-btn-num column" id="calc-three">3</div>
+                    <div class="calc-btn calc-btn-operator column" id="calc-plus">+</div>
+                </div>
+                <div class="row">
+                    <div class="calc-btn calc-btn-num column" id="calc-zero">0</div>
+                    <div class="calc-btn column" id="calc-decimal">.</div>
+                    <div class="calc-btn calc-btn-operator column" id="calc-equals">=</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

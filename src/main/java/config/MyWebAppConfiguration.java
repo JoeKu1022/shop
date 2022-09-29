@@ -1,4 +1,4 @@
-package Config;
+package config;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +13,8 @@ public class MyWebAppConfiguration implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/images/**").addResourceLocations("classpath:/static/images/");
+        registry.addResourceHandler("/css/**").addResourceLocations("classpath:/static/css/");
+        registry.addResourceHandler("/js/**").addResourceLocations("classpath:/static/js/");
     }
 
 }

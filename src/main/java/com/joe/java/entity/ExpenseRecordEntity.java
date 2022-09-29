@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.NonNull;
+
 @Entity
 @Table(name = "EXPENSE_RECORD")
 public class ExpenseRecordEntity {
@@ -37,6 +39,10 @@ public class ExpenseRecordEntity {
 	
 	@Column(name="UPDATED_BY")
 	private String updatedBy;
+
+    @Column(name = "USER_ID")
+    @NonNull
+    private String userId;
 
 	public long getId() {
 		return id;
@@ -101,5 +107,13 @@ public class ExpenseRecordEntity {
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
 	}
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
 }
